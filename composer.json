@@ -1,0 +1,54 @@
+{
+  "name": "adam.zurek/dixons-test",
+  "description": "Dixons test",
+  "minimum-stability": "dev",
+  "license": ["MIT"],
+  "authors": [
+    {
+      "name": "Adam Žurek",
+      "email": "adam.zurek@jabko.net"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "nette/utils": "^2.5"
+  },
+  "require-dev": {
+    "consistence/coding-standard": "^3.0",
+    "phpstan/phpstan": "dev-master",
+    "phpstan/phpstan-nette": "dev-master",
+    "phpstan/phpstan-phpunit": "dev-master",
+    "phpstan/phpstan-strict-rules": "dev-master",
+    "phpunit/phpunit": "^7.2.0",
+    "roave/security-advisories": "dev-master",
+    "spell-checker/spell-checker": "^0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "DixonsTest\\": ["src/"]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DixonsTest\\": ["tests/"]
+    }
+  },
+  "scripts": {
+    "all": [
+      "@cs",
+      "@stan",
+      "@tests"
+    ],
+    "cs": "phpcs --extensions=php --encoding=utf8 --tab-width=4 -sp src tests",
+    "tests": "phpunit",
+    "stan": "phpstan analyse --level=max src tests"
+  },
+  "config": {
+    "classmap-authoritative": true,
+    "platform": {
+      "php": "7.2.6"
+    }
+  }
+}
